@@ -34,13 +34,13 @@ function animate() {
 
 // Changes the src of the #photo img and changes it to the next picture
 function swapPhoto() {
-    const photo = document.getElementById("photo")
-    photo.src = (mImages[mCurrentIndex]["img"]);
+    document.getElementById("photo").src = (mImages[mCurrentIndex]["img"]);
+	$(document).ready(() => {
+		$(".location").replaceWith( "<p class=\"location\">Location: " + mImages[mCurrentIndex]["location"] + "</p>" );
+		$(".description").replaceWith( "<p class=\"description\">Description: " + mImages[mCurrentIndex]["description"] + "</p>" );
+		$(".date").replaceWith( "<p class=\"date\">Date: " + mImages[mCurrentIndex]["date"] + "</p>" );
+	})
 	console.log('swap photo');
-	mCurrentIndex++;
-	if(mCurrentIndex > mImages.length){
-	    mCurrentIndex = 0;
-    }
 }
 
 // Counter for the mImages array
@@ -75,8 +75,27 @@ $(document).ready( function() {
 	$('.details').eq(0).hide();
 
 	// Shows/hides the details section
-	$(".moreIndicator, .rot90").click(() => {
+	$(".moreIndicator").click(() => {
 		$('.details').toggle();
+		//$(".moreIndicator").toggleClass("rot270");
+	});
+
+	// Gets the previous photo in the array
+	$("#prevPhoto").click(() => {
+		mCurrentIndex--;
+		if(mCurrentIndex < 0){
+			mCurrentIndex = mImages.length-1;
+		}
+		swapPhoto();
+	});
+
+	// Gets the next photo in the array
+	$("#nextPhoto").click(() => {
+		mCurrentIndex++;
+		if(mCurrentIndex > mImages.length-1){
+			mCurrentIndex = 0;
+		}
+		swapPhoto();
 	});
 	
 });
