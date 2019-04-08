@@ -34,10 +34,13 @@ function animate() {
 
 // Changes the src of the #photo img and changes it to the next picture
 function swapPhoto() {
-    let photo = document.getElementById("photo").src;
-    console.log(mImages[0]["img"]);
-
+    const photo = document.getElementById("photo")
+    photo.src = (mImages[mCurrentIndex]["img"]);
 	console.log('swap photo');
+	mCurrentIndex++;
+	if(mCurrentIndex > mImages.length){
+	    mCurrentIndex = 0;
+    }
 }
 
 // Counter for the mImages array
@@ -70,6 +73,11 @@ $(document).ready( function() {
 	
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
+
+	// Shows/hides the details section
+	$(".moreIndicator, .rot90").click(() => {
+		$('.details').toggle();
+	});
 	
 });
 
