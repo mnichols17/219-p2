@@ -33,10 +33,8 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
-	//Add code here to access the #slideShow element.
-	//Access the img element and replace its source
-	//with a new image from your images array which is loaded 
-	//from the JSON string
+    document.getElementById("slideShow");
+
 	console.log('swap photo');
 }
 
@@ -79,22 +77,19 @@ window.addEventListener('load', function() {
 
 }, false);
 
-function GalleryImage(location, description, date, img) {
-	//implement me as an object to hold the following data about an image:
-	//1. location where photo was taken
-	//2. description of photo
-	//3. the date when the photo was taken
-	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+function GalleryImage(img, location, description, date) {
+
 }
 
+// Gets the images from the folder and creates a GalleryImage object from it
 function reqListener () {
-	let json = JSON.parse(this.responseText);
-	json["images"].forEach((image) => {
-		console.log(image);
+	mJson = JSON.parse(this.responseText);
+
+	mJson["images"].forEach((image) => {
+		makeGalleryImageOnloadCallback(GalleryImage(image["imgPath"], image["imgLocation"], image["description"], image["date"]));
 	});
 }
 
-var oReq = new XMLHttpRequest();
-oReq.addEventListener("load", reqListener);
-oReq.open("GET", "images.json");
-oReq.send();
+mRequest.addEventListener("load", reqListener);
+mRequest.open("GET", "images.json");
+mRequest.send();
