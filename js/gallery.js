@@ -32,8 +32,10 @@ function animate() {
 
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
+// Changes the src of the #photo img and changes it to the next picture
 function swapPhoto() {
-    document.getElementById("slideShow");
+    let photo = document.getElementById("photo").src;
+    console.log(mImages[0]["img"]);
 
 	console.log('swap photo');
 }
@@ -78,7 +80,14 @@ window.addEventListener('load', function() {
 }, false);
 
 function GalleryImage(img, location, description, date) {
+    let image = {
+        "img": img,
+        "location": location,
+        "description": description,
+        "date": date
+    }
 
+    mImages.push(image);
 }
 
 // Gets the images from the folder and creates a GalleryImage object from it
@@ -86,7 +95,7 @@ function reqListener () {
 	mJson = JSON.parse(this.responseText);
 
 	mJson["images"].forEach((image) => {
-		makeGalleryImageOnloadCallback(GalleryImage(image["imgPath"], image["imgLocation"], image["description"], image["date"]));
+		GalleryImage(image["imgPath"], image["imgLocation"], image["description"], image["date"]);
 	});
 }
 
