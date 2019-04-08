@@ -1,0 +1,81 @@
+body {
+	overflow: auto;
+	font-family: 'Century Gothic', sans-serif;
+	background-image: url(../img/geometry.jpg);
+}
+
+#photoBooth {
+	margin-top: .2em;
+	padding: 10px;
+	width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	border-radius: 2px;
+}	
+
+#slideShow {	
+	position: relative;
+}
+
+.photoHolder {
+	position: relative;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.moreIndicator {
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	z-index: 3;
+	opacity: .8;
+	top: 0px;
+}
+
+.thumbnail {
+	position: relative;
+	box-shadow: 1px 3px 20px 0px;
+}
+
+
+.banner {
+	text-align: center;
+	font-size: 1.25em;
+}
+
+#nav {
+	clear: both;
+	position: relative;
+}
+
+#prevPhoto {
+	height: 42px;
+	width: 42px;
+}
+
+#nextPhoto {
+	height: 42px;
+	width: 42px;
+}
+
+.details p {
+	margin-top: 20px;
+}
+.details {
+	border: 1px #000 dashed;
+	padding: 0px 10px;
+	margin: 20px 0px;
+}
+
+/*Add CSS styles to rotate the element 90deg
+Make it animate nicely. You'll need CSS3 for this*/
+.rot90 {}
+
+/*Add CSS styles to rotate the element 180deg
+Make it animate nicely. You'll need CSS3 for this*/
+.rot180 {}
+
+/*Add CSS styles to rotate the element 270deg
+Make it animate nicely. You'll need CSS3 for this*/
+.rot270 {}

@@ -1,0 +1,28 @@
+{
+    "images": [
+        {
+            "imgPath": "http://placehold.it/518x389?text=index+0",
+            "imgLocation": "First image (index 0)",
+            "description": "This is the 1st image in the set",
+            "date": "01/01/2016"
+        },
+        {
+            "imgPath": "http://placehold.it/518x389?text=index+1",
+            "imgLocation": "Second image (index 1)",
+            "description": "This is the 2nd image in the set",
+            "date": "02/01/2016"
+        },
+        {
+            "imgPath": "http://placehold.it/518x389?text=index+2",
+            "imgLocation": "Third image (index 2)",
+            "description": "This is the 3rd image in the set",
+            "date": "03/01/2016"
+        },
+    {
+      "imgPath": "http://placehold.it/518x389?text=index+3",
+      "imgLocation": "Fourth image (index 3)",
+      "description": "This is the 4th image in the set",
+      "date": "04/01/2016"
+    }
+  ]
+}
