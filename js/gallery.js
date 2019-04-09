@@ -128,3 +128,7 @@ function reqListener () {
 mRequest.addEventListener("load", reqListener);
 mRequest.open("GET", "images.json");
 mRequest.send();
+
+/*$.get(,(json) => {
+
+});*/
