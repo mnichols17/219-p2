@@ -77,7 +77,7 @@ $(document).ready( function() {
 	// Shows/hides the details section
 	$(".moreIndicator").click(() => {
 		$('.details').toggle();
-		//$(".moreIndicator").toggleClass("rot270");
+		$(".moreIndicator").toggleClass("rot90").toggleClass("rot270");
 	});
 
 	// Gets the previous photo in the array
@@ -125,7 +125,6 @@ function reqListener () {
 		GalleryImage(image["imgPath"], image["imgLocation"], image["description"], image["date"]);
 	});
 }
-
 mRequest.addEventListener("load", reqListener);
 mRequest.open("GET", "images.json");
 mRequest.send();
