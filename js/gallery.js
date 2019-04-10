@@ -88,8 +88,6 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 
 $(document).ready( function() {
 
-	$.get(newUrl);
-
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
 
@@ -142,18 +140,14 @@ function reqListener () {
 		mJson = JSON.parse(this.responseText);
 	}
 	catch {
-		mUrl = "images.json";
-		console.log("not working");
 		mRequest.addEventListener("load", reqListener);
 		mRequest.open("GET", "images.json");
 		mRequest.send();
 	}
 
-	if(mJson){
-		mJson["images"].forEach((image) => {
-			GalleryImage(image["imgPath"], image["imgLocation"], image["description"], image["date"]);
-		});
-	}
+	mJson["images"].forEach((image) => {
+		GalleryImage(image["imgPath"], image["imgLocation"], image["description"], image["date"]);
+	});
 }
 mRequest.addEventListener("load", reqListener);
 mRequest.open("GET", mUrl);
