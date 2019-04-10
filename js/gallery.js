@@ -36,10 +36,10 @@ function animate() {
 function swapPhoto() {
     document.getElementById("photo").src = (mImages[mCurrentIndex]["img"]);
 	$(document).ready(() => {
-		$(".location").replaceWith( "<p class=\"location\">Location: " + mImages[mCurrentIndex]["location"] + "</p>" );
-		$(".description").replaceWith( "<p class=\"description\">Description: " + mImages[mCurrentIndex]["description"] + "</p>" );
-		$(".date").replaceWith( "<p class=\"date\">Date: " + mImages[mCurrentIndex]["date"] + "</p>" );
-	})
+		$(".location").text("Location: " + mImages[mCurrentIndex]["location"]);
+		$(".description").text("Description: " + mImages[mCurrentIndex]["description"]);
+		$(".date").text( "Date: " + mImages[mCurrentIndex]["date"]);
+	});
 	console.log('swap photo');
 }
 
@@ -57,7 +57,24 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'insert_url_here_to_image_json';
+var mUrl = 'images.json';
+
+// Gets data to use from a different json file
+function getQueryParams(qs) {
+	qs = qs.split("+").join(" ");
+	var params = {},
+		tokens,
+		re = /[?&]?([^=]+)=([^&]*)/g;
+	while (tokens = re.exec(qs)) {
+		params[decodeURIComponent(tokens[1])]
+			= decodeURIComponent(tokens[2]);
+	}
+	return params;
+}
+const newUrl = (getQueryParams(document.location.search)["json"]);
+if(newUrl != undefined){
+	mUrl = newUrl;
+}
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -70,7 +87,9 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-	
+
+	console.log($.get(newUrl));
+
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
 
@@ -126,9 +145,5 @@ function reqListener () {
 	});
 }
 mRequest.addEventListener("load", reqListener);
-mRequest.open("GET", "images.json");
-mRequest.send();
-
-/*$.get(,(json) => {
-
-});*/
+mRequest.open("GET", mUrl);
+console.log(mRequest.send());
