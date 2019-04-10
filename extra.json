@@ -1,34 +1,34 @@
 {
     "images": [
         {
-            "imgPath": "img/places/australia.jpg",
-            "imgLocation": "Australia",
-            "description": "Loch Ard Gorge",
-            "date": "01/01/2016"
+            "imgPath": "img/uni/njit.jpg",
+            "imgLocation": "Newark",
+            "description": "New Jersey Institute of Technology",
+            "date": "1881"
         },
         {
-            "imgPath": "img/places/austria.jpg",
-            "imgLocation": "Austria",
-            "description": "Austrian chapel",
-            "date": "01/02/2016"
+            "imgPath": "img/uni/rutgers.jpg",
+            "imgLocation": "New Brunswick",
+            "description": "Rutgers",
+            "date": "1766"
         },
         {
-            "imgPath": "img/places/france.jpg",
-            "imgLocation": "Paris",
-            "description": "Eiffel Tower",
-            "date": "01/03/2016"
+            "imgPath": "img/uni/princeton.jpg",
+            "imgLocation": "Princeton",
+            "description": "Princeton University",
+            "date": "1746"
         },
         {
-            "imgPath": "img/places/greece.jpg",
-            "imgLocation": "Greece",
-            "description": "Greek coastline",
-            "date": "01/04/2016"
+            "imgPath": "img/places/tcnj.jpg",
+            "imgLocation": "Ewing Township",
+            "description": "The College of New Jersey",
+            "date": "1855"
         },
         {
-            "imgPath": "img/places/hungary.jpg",
-            "imgLocation": "Hungary",
-            "description": "Budapest skyline",
-            "date": "01/05/2016"
+            "imgPath": "img/places/stevens.jpg",
+            "imgLocation": "Hoboken",
+            "description": "Stevens Institute of Technology",
+            "date": "1870"
         }
   ]
 }
