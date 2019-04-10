@@ -59,7 +59,7 @@ var mJson;
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
 var mUrl = 'images.json';
 
-// Gets data to use from a different json file
+// Gets data to use from a different json file (if available)
 function getQueryParams(qs) {
 	qs = qs.split("+").join(" ");
 	var params = {},
@@ -88,7 +88,7 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 
 $(document).ready( function() {
 
-	console.log($.get(newUrl));
+	$.get(newUrl);
 
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
@@ -138,12 +138,23 @@ function GalleryImage(img, location, description, date) {
 
 // Gets the images from the folder and creates a GalleryImage object from it
 function reqListener () {
-	mJson = JSON.parse(this.responseText);
+	try{
+		mJson = JSON.parse(this.responseText);
+	}
+	catch {
+		mUrl = "images.json";
+		console.log("not working");
+		mRequest.addEventListener("load", reqListener);
+		mRequest.open("GET", "images.json");
+		mRequest.send();
+	}
 
-	mJson["images"].forEach((image) => {
-		GalleryImage(image["imgPath"], image["imgLocation"], image["description"], image["date"]);
-	});
+	if(mJson){
+		mJson["images"].forEach((image) => {
+			GalleryImage(image["imgPath"], image["imgLocation"], image["description"], image["date"]);
+		});
+	}
 }
 mRequest.addEventListener("load", reqListener);
 mRequest.open("GET", mUrl);
-console.log(mRequest.send());
+mRequest.send();
